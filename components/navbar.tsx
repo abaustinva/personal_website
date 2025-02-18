@@ -80,9 +80,7 @@ export const Navbar = () => {
         justify="end"
       >
         <NavbarItem className="hidden sm:flex gap-2">
-          <Link isExternal href={siteConfig.links.twitter} title="Twitter">
-            <TwitterIcon className="text-default-500" />
-          </Link>
+    
           <Link isExternal href={siteConfig.links.discord} title="Discord">
             <DiscordIcon className="text-default-500" />
           </Link>
@@ -91,7 +89,7 @@ export const Navbar = () => {
           </Link>
           <ThemeSwitch />
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchInput}</NavbarItem>
+
         <NavbarItem className="hidden md:flex">
           <Button
             isExternal
@@ -101,7 +99,7 @@ export const Navbar = () => {
             startContent={<HeartFilledIcon className="text-danger" />}
             variant="flat"
           >
-            Sponsor
+             Buy me a Coffee
           </Button>
         </NavbarItem>
       </NavbarContent>
