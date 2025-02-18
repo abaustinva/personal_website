@@ -14,13 +14,17 @@ export default function IndexPage() {
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-xl text-center justify-center">
           <span className={title()}>&nbsp;</span>
-          <span className={title({ color: "violet" })}>Howdy!&nbsp;</span>
+          <span className={title({ color: "violet" })}>howdy!&nbsp;</span>
+          <span className={title()} >🤠&nbsp;</span>
           <br />
           <span className={title()}>
-            My name is Austin Abraham!
+            my name is Austin, and i'm a incoming cloud engineer @AWS.
           </span>
           <div className={subtitle({ class: "mt-4" })}>
-            Beautiful, fast and modern React UI library.
+            I'm currently a senior Computer Science major @Texas A&M University! 
+          </div>
+          <div className={subtitle({ class: "mt-4" })}>
+            I love playing basketball, watching Friends, and setting up hackathons! 
           </div>
         </div>
 
@@ -34,7 +38,7 @@ export default function IndexPage() {
             })}
             href={siteConfig.links.docs}
           >
-            Documentation
+            About
           </Link>
           <Link
             isExternal
