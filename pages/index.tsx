@@ -1,62 +1,67 @@
-import { Link } from "@heroui/link";
-import { Snippet } from "@heroui/snippet";
-import { Code } from "@heroui/code";
-import { button as buttonStyles } from "@heroui/theme";
+import { Link } from "@heroui/link"; // Importing Link component from HeroUI library
+import { Snippet } from "@heroui/snippet"; // Importing Snippet component from HeroUI library
+import { Code } from "@heroui/code"; // Importing Code component from HeroUI library
+import { button as buttonStyles } from "@heroui/theme"; // Importing button styles from HeroUI theme
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import DefaultLayout from "@/layouts/default";
+import { siteConfig } from "@/config/site"; // Importing site configuration
+import { title, subtitle } from "@/components/primitives"; // Importing title and subtitle styles from primitives
+import { GithubIcon } from "@/components/icons"; // Importing GithubIcon component
+import DefaultLayout from "@/layouts/default"; // Importing DefaultLayout component
 
+// IndexPage component definition
 export default function IndexPage() {
   return (
+    // Using DefaultLayout component to wrap the page content
     <DefaultLayout>
+      {/* Main section with flexbox layout */}
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        <div className="inline-block max-w-xl text-center justify-center">
+        {/* Container for the main content */}
+        <div className="inline-block max-w-3xl text-center justify-center">
+          {/* Empty span for spacing */}
           <span className={title()}>&nbsp;</span>
-          <span className={title({ color: "violet" })}>howdy!&nbsp;</span>
-          <span className={title()} >🤠&nbsp;</span>
+          {/* "howdy!" text with violet color and responsive font size */}
+          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl`} style={{ marginBottom: '1rem' }}>howdy!&nbsp;</span>
+          {/* Cowboy emoji with responsive font size */}
+          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`} style={{ marginBottom: '1rem' }}>🤠&nbsp;</span>
           <br />
-          <span className={title()}>
+          {/* Introduction text with responsive font size */}
+          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`}>
             my name is Austin, and i'm a incoming cloud engineer @AWS.
           </span>
-          <div className={subtitle({ class: "mt-4" })}>
-            I'm currently a senior Computer Science major @Texas A&M University! 
+          {/* Subtitle with additional information and responsive font size */}
+          <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
+            I'm currently a senior Computer Science major @Texas A&M University!
           </div>
-          <div className={subtitle({ class: "mt-4" })}>
-            I love playing basketball, watching Friends, and setting up hackathons! 
+          {/* Subtitle with hobbies and responsive font size */}
+          <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
+            I love playing basketball, watching the show Friends, and setting up hackathons!
           </div>
         </div>
 
-        <div className="flex gap-3">
+        {/* Container for the buttons */}
+        <div className="flex gap-4">
+          {/* "About" button with primary color, full radius, shadow variant, and large size */}
           <Link
             isExternal
             className={buttonStyles({
               color: "primary",
-              radius: "full",
+              radius: "lg",
               variant: "shadow",
+              size: "lg",
             })}
-            href={siteConfig.links.docs}
+            href={'/about'}
           >
             About
           </Link>
+          {/* "GitHub" button with bordered variant, full radius, large size, and GitHub icon */}
           <Link
             isExternal
-            className={buttonStyles({ variant: "bordered", radius: "full" })}
-            href={siteConfig.links.github}
+            className={buttonStyles({ variant: "bordered", radius: "lg", size: "lg" })}
+            href='https://github.com/abaustinva'
           >
-            <GithubIcon size={20} />
+            <GithubIcon size={30} />
             GitHub
           </Link>
-        </div>
-
-        <div className="mt-8">
-          <Snippet hideCopyButton hideSymbol variant="bordered">
-            <span>
-              Get started by editing{" "}
-              <Code color="primary">pages/index.tsx</Code>
-            </span>
-          </Snippet>
         </div>
       </section>
     </DefaultLayout>
