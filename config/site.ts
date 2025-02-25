@@ -5,65 +5,46 @@ export const siteConfig = {
   description: "Make beautiful websites regardless of your design experience.",
   navItems: [
     {
-      label: "Home",
+      label: "home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "resume",
+      href: "/resume.pdf",
+      target: "_blank",
+      rel: "noopener noreferrer"
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "hot takes",
+      href: "/hot_takes",
     },
     {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
+      label: "about",
       href: "/about",
     },
   ],
   navMenuItems: [
     {
-      label: "Profile",
-      href: "/profile",
+      label: "home",
+      href: "/",
     },
     {
-      label: "Dashboard",
-      href: "/dashboard",
+      label: "resume",
+      href: "/resume.pdf",
+      target: "_blank",
+      rel: "noopener noreferrer"
     },
     {
-      label: "Projects",
-      href: "/projects",
+      label: "hot takes",
+      href: "/hot_takes",
     },
     {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
-    },
-    {
-      label: "Logout",
-      href: "/logout",
+      label: "about",
+      href: "/about",
     },
   ],
   links: {
-    github: "https://github.com/heroui-inc/heroui",
-    twitter: "https://twitter.com/hero_ui",
-    docs: "https://heroui.com",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    github: "https://github.com/abaustinva",
+    discord: "https://discord.gg/9b6yyZKmH4"
   },
 };

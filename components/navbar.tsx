@@ -30,7 +30,7 @@ import {
 export const Navbar = () => {
   return (
     // HeroUINavbar component with maxWidth and position properties
-    <HeroUINavbar maxWidth="2xl" position="sticky" className="">
+    <HeroUINavbar maxWidth="full" position="sticky" className="">
       {/* NavbarContent for the left side of the navbar */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         {/* NavbarBrand with logo and site name */}
@@ -42,21 +42,23 @@ export const Navbar = () => {
         </NavbarBrand>
         {/* Navigation items */}
         <div className="hidden md:flex gap-6 justify-start ml-2">
-          {siteConfig.navItems.map((item) => (
-            <NavbarItem key={item.href}>
-              <NextLink
-                className={clsx(
-                  linkStyles({ color: "foreground" }),
-                  "data-[active=true]:text-primary data-[active=true]:font-medium text-xl" // Conditional class names for active state and increased font size
-                )}
-                color="foreground"
-                href={item.href}
-              >
-                {item.label} {/* Navigation item label */}
-              </NextLink>
-            </NavbarItem>
-          ))}
-        </div>
+  {siteConfig.navItems.map((item) => (
+    <NavbarItem key={item.href}>
+      <NextLink
+        className={clsx(
+          linkStyles({ color: "foreground" }),
+          "data-[active=true]:text-primary data-[active=true]:font-medium text-xl"
+        )}
+        color="foreground"
+        href={item.href}
+        target={item.target}
+        rel={item.rel}
+      >
+        {item.label}
+      </NextLink>
+    </NavbarItem>
+  ))}
+</div>
       </NavbarContent>
 
       {/* NavbarContent for the right side of the navbar */}
@@ -106,29 +108,28 @@ export const Navbar = () => {
         <ThemeSwitch /> {/* Theme switch component */}
         <NavbarMenuToggle /> {/* Navbar menu toggle for mobile view */}
       </NavbarContent>
-
-      {/* Navbar menu for mobile view */}
-      <NavbarMenu>
-        <div className="mx-4 mt-2 flex flex-col gap-2">
-          {siteConfig.navMenuItems.map((item, index) => (
-            <NavbarMenuItem key={`${item}-${index}`}>
-              <Link
-                color={
-                  index === 2
-                    ? "primary"
-                    : index === siteConfig.navMenuItems.length - 1
-                    ? "danger"
-                    : "foreground"
-                }
-                href="#"
-                size="lg" // Increased font size
-              >
-                {item.label} {/* Menu item label */}
-              </Link>
-            </NavbarMenuItem>
-          ))}
-        </div>
-      </NavbarMenu>
+{/* Navbar menu for mobile view */}
+<NavbarMenu>
+  <div className="mx-4 mt-2 flex flex-col gap-2">
+    {siteConfig.navMenuItems.map((item, index) => (
+      <NavbarMenuItem key={`${item}-${index}`}>
+        <Link
+          color={
+            index === 2
+              ? "primary"
+              : "foreground"
+          }
+          href={item.href}
+          target={item.label === "resume" ? "_blank" : undefined}
+          rel={item.label === "resume" ? "noopener noreferrer" : undefined}
+          size="lg"
+        >
+          {item.label}
+        </Link>
+      </NavbarMenuItem>
+    ))}
+  </div>
+</NavbarMenu>
     </HeroUINavbar>
   );
 };
