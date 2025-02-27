@@ -6,17 +6,17 @@ import {
   NavbarBrand,
   NavbarItem,
   NavbarMenuItem,
-} from "@heroui/navbar"; // Importing components from HeroUI library
-import { Button } from "@heroui/button"; // Importing Button component from HeroUI library
-import { Kbd } from "@heroui/kbd"; // Importing Kbd component from HeroUI library
-import { Link } from "@heroui/link"; // Importing Link component from HeroUI library
-import { Input } from "@heroui/input"; // Importing Input component from HeroUI library
-import { link as linkStyles } from "@heroui/theme"; // Importing link styles from HeroUI theme
-import NextLink from "next/link"; // Importing Next.js Link component
-import clsx from "clsx"; // Importing clsx for conditional class names
+} from "@heroui/navbar";
+import { Button } from "@heroui/button";
+import { Kbd } from "@heroui/kbd";
+import { Link } from "@heroui/link";
+import { Input } from "@heroui/input";
+import { link as linkStyles } from "@heroui/theme";
+import NextLink from "next/link";
+import clsx from "clsx";
 
-import { siteConfig } from "@/config/site"; // Importing site configuration
-import { ThemeSwitch } from "@/components/theme-switch"; // Importing ThemeSwitch component
+import { siteConfig } from "@/config/site";
+import { ThemeSwitch } from "@/components/theme-switch";
 import {
   TwitterIcon,
   GithubIcon,
@@ -26,68 +26,67 @@ import {
   Logo,
   LinkedInIcon,
   InstagramIcon,
-} from "@/components/icons"; // Importing icons
+} from "@/components/icons";
 
-// Navbar component definition
-export const Navbar = () => {
+interface NavbarProps {
+  showContent?: boolean;
+}
+
+export const Navbar = ({ showContent = true }: NavbarProps) => {
   return (
-    // HeroUINavbar component with maxWidth and position properties
-    <HeroUINavbar maxWidth="xl" position="sticky" className="">
-      {/* NavbarContent for the left side of the navbar */}
+    <HeroUINavbar 
+      maxWidth="xl" 
+      position="sticky" 
+      className={`transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}
+    >
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
-        {/* NavbarBrand with logo and site name */}
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-6" href="/">
-           
-            <p className="font-bold text-xl">austin abraham</p> {/* Site name with increased font size */}
+            <p className="font-bold text-xl">austin</p>
           </NextLink>
         </NavbarBrand>
-        {/* Navigation items */}
         <div className="hidden md:flex gap-6 justify-start ml-2">
-  {siteConfig.navItems.map((item) => (
-    <NavbarItem key={item.href}>
-      <NextLink
-        className={clsx(
-          linkStyles({ color: "foreground" }),
-          "data-[active=true]:text-primary data-[active=true]:font-medium text-xl"
-        )}
-        color="foreground"
-        href={item.href}
-        target={item.target}
-        rel={item.rel}
-      >
-        {item.label}
-      </NextLink>
-    </NavbarItem>
-  ))}
-</div>
+          {siteConfig.navItems.map((item) => (
+            <NavbarItem key={item.href}>
+              <NextLink
+                className={clsx(
+                  linkStyles({ color: "foreground" }),
+                  "data-[active=true]:text-primary data-[active=true]:font-medium text-xl"
+                )}
+                color="foreground"
+                href={item.href}
+                target={item.target}
+                rel={item.rel}
+              >
+                {item.label}
+              </NextLink>
+            </NavbarItem>
+          ))}
+        </div>
       </NavbarContent>
 
-      {/* NavbarContent for the right side of the navbar */}
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
-        {/* Social media and theme switch icons */}
         <NavbarItem className="hidden md:flex gap-4">
-          <Link isExternal href={siteConfig.links.linkedin} title="Linkedin">
-            <LinkedInIcon className="text-default-500 w-6 h-6" /> {/* Linkedin icon with increased size */}
+          <Link isExternal href={siteConfig.links.linkedin} title="LinkedIn">
+            <LinkedInIcon className="text-default-500 w-6 h-6" />
           </Link>
           <Link isExternal href={siteConfig.links.github} title="GitHub">
-            <GithubIcon className="text-default-500 w-6 h-6" /> {/* GitHub icon with increased size */}
+            <GithubIcon className="text-default-500 w-6 h-6" />
           </Link>
           <Link isExternal href={siteConfig.links.instagram} title="Instagram">
-            <InstagramIcon className="text-default-500 w-6 h-6" /> {/* GitHub icon with increased size */}
+            <InstagramIcon className="text-default-500 w-6 h-6" />
           </Link>
-          <ThemeSwitch /> {/* Theme switch component */}
+          <ThemeSwitch />
         </NavbarItem>
 
-        {/* Buy me a Coffee button */}
         <NavbarItem className="hidden md:flex">
           <Button
             isExternal
             as={Link}
-            className="text-lg font-normal text-default-600 bg-default-100" // Button with increased font size
-            href="https://venmo.com/abaustinva" // Replace with your Venmo link
-            target="_blank" // Open in a new tab
-            rel="noopener noreferrer" // Security reasons
+            className="text-lg font-normal text-default-600 bg-default-100"
+            href="https://venmo.com/abaustinva"
+            target="_blank"
+            rel="noopener noreferrer"
             variant="flat"
           >
             ☕ Buy me a Coffee
@@ -95,15 +94,14 @@ export const Navbar = () => {
         </NavbarItem>
       </NavbarContent>
 
-      {/* NavbarContent for mobile view */}
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
+        
         <Link isExternal href={siteConfig.links.github} title="GitHub">
           <GithubIcon className="text-default-500 w-6 h-6" />
         </Link>
         <Link isExternal href={siteConfig.links.instagram} title="Instagram">
           <InstagramIcon className="text-default-500 w-6 h-6" />
         </Link>
-        {/* Buy me a Coffee button for mobile view */}
         <Link
           isExternal
           href="https://venmo.com/abaustinva"
@@ -116,28 +114,28 @@ export const Navbar = () => {
         <ThemeSwitch />
         <NavbarMenuToggle />
       </NavbarContent>
-{/* Navbar menu for mobile view */}
-<NavbarMenu>
-  <div className="mx-4 mt-2 flex flex-col gap-2">
-    {siteConfig.navMenuItems.map((item, index) => (
-      <NavbarMenuItem key={`${item}-${index}`}>
-        <Link
-          color={
-            index === 2
-              ? "primary"
-              : "foreground"
-          }
-          href={item.href}
-          target={item.label === "resume" ? "_blank" : undefined}
-          rel={item.label === "resume" ? "noopener noreferrer" : undefined}
-          size="lg"
-        >
-          {item.label}
-        </Link>
-      </NavbarMenuItem>
-    ))}
-  </div>
-</NavbarMenu>
+
+      <NavbarMenu>
+        <div className="mx-4 mt-2 flex flex-col gap-2">
+          {siteConfig.navMenuItems.map((item, index) => (
+            <NavbarMenuItem key={`${item}-${index}`}>
+              <Link
+                color={
+                  index === 2
+                    ? "primary"
+                    : "foreground"
+                }
+                href={item.href}
+                target={item.label === "resume" ? "_blank" : undefined}
+                rel={item.label === "resume" ? "noopener noreferrer" : undefined}
+                size="lg"
+              >
+                {item.label}
+              </Link>
+            </NavbarMenuItem>
+          ))}
+        </div>
+      </NavbarMenu>
     </HeroUINavbar>
   );
 };

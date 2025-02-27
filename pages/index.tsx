@@ -11,31 +11,57 @@ import DefaultLayout from "@/layouts/default";
 
 export default function IndexPage() {
   const [showContent, setShowContent] = useState(false);
+  const [text, setText] = useState('');
+  const [showEmoji, setShowEmoji] = useState(false);
+  const fullText = "howdy!";
+  const emoji = "🤠";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 500);
+    // Type out the text one character at a time
+    if (text.length < fullText.length) {
+      const typing = setTimeout(() => {
+        setText(fullText.slice(0, text.length + 1));
+      }, 150);
+      return () => clearTimeout(typing);
+    }
 
-    return () => clearTimeout(timer);
-  }, []);
+    // Show emoji after text is complete
+    if (text === fullText && !showEmoji) {
+      const emojiTimer = setTimeout(() => {
+        setShowEmoji(true);
+      }, 150);
+      return () => clearTimeout(emojiTimer);
+    }
+
+    // After emoji is shown, show the rest of the content
+    if (showEmoji) {
+      const contentTimer = setTimeout(() => {
+        setShowContent(true);
+      }, 500);
+      return () => clearTimeout(contentTimer);
+    }
+  }, [text, showEmoji]);
 
   return (
-    <DefaultLayout>
+    <DefaultLayout showContent={showContent}>
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
         <div className="inline-block max-w-3xl text-center justify-center">
           <span className={title()}>&nbsp;</span>
-          {/* This content shows immediately */}
-          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl`} 
-                style={{ marginBottom: '1rem' }}>
-            howdy!&nbsp;
-          </span>
-          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`} 
-                style={{ marginBottom: '1rem' }}>
-            🤠&nbsp;
-          </span>
+          
+          <div className="flex items-center justify-center">
+            <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl inline-block`} 
+                  style={{ marginBottom: '2rem' }}>
+              {text}
+            </span>
+            {showEmoji && (
+              <span className={`${title()} text-3xl md:text-4xl lg:text-7xl inline-block ml-2`} 
+                    style={{ marginBottom: '2rem' }}>
+                {emoji}
+              </span>
+            )}
+          </div>
           <br />
-          {/* Content that fades in */}
+          
           <div className={`transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
             <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`}>
               my name is Austin, and i'm a incoming cloud engineer @AWS.
@@ -49,7 +75,6 @@ export default function IndexPage() {
           </div>
         </div>
 
-        {/* Buttons that fade in */}
         <div className={`flex gap-4 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
           <Link
             isExternal

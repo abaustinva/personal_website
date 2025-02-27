@@ -1,18 +1,20 @@
 import { Link } from "@heroui/link";
-
 import { Head } from "./head";
-
 import { Navbar } from "@/components/navbar";
+
+interface DefaultLayoutProps {
+  children: React.ReactNode;
+  showContent?: boolean;
+}
 
 export default function DefaultLayout({
   children,
-}: {
-  children: React.ReactNode;
-}) {
+  showContent = true
+}: DefaultLayoutProps) {
   return (
     <div className="relative flex flex-col h-screen">
       <Head />
-      <Navbar />
+      <Navbar showContent={showContent} />
       <main className="container mx-auto max-w-7xl px-6 flex-grow pt-16">
         {children}
       </main>
@@ -24,7 +26,6 @@ export default function DefaultLayout({
           title="heroui.com homepage"
         >
           <span className="text-default-600">Made with ❤️ by austin</span>
-
         </Link>
       </footer>
     </div>
