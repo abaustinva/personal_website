@@ -45,6 +45,8 @@ export const siteConfig = {
   ],
   links: {
     github: "https://github.com/abaustinva",
-    discord: "https://discord.gg/9b6yyZKmH4"
+    discord: "https://discord.gg/9b6yyZKmH4",
+    instagram: "https://instagram.com/austin_abraham01",
+    linkedin: "https://linkedin.com/in/abaustinva"
   },
 };

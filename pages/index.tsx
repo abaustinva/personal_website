@@ -1,50 +1,60 @@
-import { Link } from "@heroui/link"; // Importing Link component from HeroUI library
-import { Snippet } from "@heroui/snippet"; // Importing Snippet component from HeroUI library
-import { Code } from "@heroui/code"; // Importing Code component from HeroUI library
-import { button as buttonStyles } from "@heroui/theme"; // Importing button styles from HeroUI theme
+import { Link } from "@heroui/link";
+import { Snippet } from "@heroui/snippet";
+import { Code } from "@heroui/code";
+import { button as buttonStyles } from "@heroui/theme";
+import { useEffect, useState } from 'react';
 
-import { siteConfig } from "@/config/site"; // Importing site configuration
-import { title, subtitle } from "@/components/primitives"; // Importing title and subtitle styles from primitives
-import { GithubIcon } from "@/components/icons"; // Importing GithubIcon component
-import DefaultLayout from "@/layouts/default"; // Importing DefaultLayout component
+import { siteConfig } from "@/config/site";
+import { title, subtitle } from "@/components/primitives";
+import { LinkedInIcon } from "@/components/icons";
+import DefaultLayout from "@/layouts/default";
 
-// IndexPage component definition
 export default function IndexPage() {
+  const [showContent, setShowContent] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    // Using DefaultLayout component to wrap the page content
     <DefaultLayout>
-      {/* Main section with flexbox layout */}
       <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-        {/* Container for the main content */}
         <div className="inline-block max-w-3xl text-center justify-center">
-          {/* Empty span for spacing */}
           <span className={title()}>&nbsp;</span>
-          {/* "howdy!" text with violet color and responsive font size */}
-          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl`} style={{ marginBottom: '1rem' }}>howdy!&nbsp;</span>
-          {/* Cowboy emoji with responsive font size */}
-          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`} style={{ marginBottom: '1rem' }}>🤠&nbsp;</span>
-          <br />
-          {/* Introduction text with responsive font size */}
-          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`}>
-            my name is Austin, and i'm a incoming cloud engineer @AWS.
+          {/* This content shows immediately */}
+          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl`} 
+                style={{ marginBottom: '1rem' }}>
+            howdy!&nbsp;
           </span>
-          {/* Subtitle with additional information and responsive font size */}
-          <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
-            I'm currently a senior Computer Science major @Texas A&M University!
-          </div>
-          {/* Subtitle with hobbies and responsive font size */}
-          <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
-            I love playing basketball, watching the show Friends, and setting up hackathons!
+          <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`} 
+                style={{ marginBottom: '1rem' }}>
+            🤠&nbsp;
+          </span>
+          <br />
+          {/* Content that fades in */}
+          <div className={`transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+            <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`}>
+              my name is Austin, and i'm a incoming cloud engineer @AWS.
+            </span>
+            <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
+              I'm currently a senior Computer Science major @Texas A&M University!
+            </div>
+            <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
+              I love playing basketball, watching the show Friends, and setting up hackathons!
+            </div>
           </div>
         </div>
 
-        {/* Container for the buttons */}
-        <div className="flex gap-4">
-          {/* "About" button with primary color, full radius, shadow variant, and large size */}
+        {/* Buttons that fade in */}
+        <div className={`flex gap-4 transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
           <Link
             isExternal
             className={buttonStyles({
-              color: "primary",
+              color: "secondary",
               radius: "lg",
               variant: "shadow",
               size: "lg",
@@ -53,14 +63,17 @@ export default function IndexPage() {
           >
             About
           </Link>
-          {/* "GitHub" button with bordered variant, full radius, large size, and GitHub icon */}
           <Link
             isExternal
-            className={buttonStyles({ variant: "bordered", radius: "lg", size: "lg" })}
-            href='https://github.com/abaustinva'
+            className={buttonStyles({ 
+              variant: "shadow", 
+              radius: "lg", 
+              size: "lg" 
+            })}
+            href="https://linkedin.com/in/abaustinva"
           >
-            <GithubIcon size={30} />
-            GitHub
+            <LinkedInIcon size={24} />
+            LinkedIn
           </Link>
         </div>
       </section>

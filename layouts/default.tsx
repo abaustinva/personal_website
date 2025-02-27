@@ -20,7 +20,7 @@ export default function DefaultLayout({
         <Link
           isExternal
           className="flex items-center gap-1 text-current"
-          href="https://www.heroui.com"
+          href="https://www.youtube.com/watch?v=MjR4iDkz3ic&pp=ygUuZGVycmljayByb3NlIGhpZ2hsaWdodHMgdGhhdCB3aWxsIG1ha2UgeW91IGNyeQ%3D%3D"
           title="heroui.com homepage"
         >
           <span className="text-default-600">Made with ❤️ by austin</span>

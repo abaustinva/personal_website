@@ -24,20 +24,22 @@ import {
   HeartFilledIcon,
   SearchIcon,
   Logo,
+  LinkedInIcon,
+  InstagramIcon,
 } from "@/components/icons"; // Importing icons
 
 // Navbar component definition
 export const Navbar = () => {
   return (
     // HeroUINavbar component with maxWidth and position properties
-    <HeroUINavbar maxWidth="full" position="sticky" className="">
+    <HeroUINavbar maxWidth="xl" position="sticky" className="">
       {/* NavbarContent for the left side of the navbar */}
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         {/* NavbarBrand with logo and site name */}
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-6" href="/">
-            <Logo className="w-10 h-10" /> {/* Logo component with increased size */}
-            <p className="font-bold text-xl">ACME</p> {/* Site name with increased font size */}
+           
+            <p className="font-bold text-xl">austin abraham</p> {/* Site name with increased font size */}
           </NextLink>
         </NavbarBrand>
         {/* Navigation items */}
@@ -65,11 +67,14 @@ export const Navbar = () => {
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         {/* Social media and theme switch icons */}
         <NavbarItem className="hidden md:flex gap-4">
-          <Link isExternal href={siteConfig.links.discord} title="Discord">
-            <DiscordIcon className="text-default-500 w-6 h-6" /> {/* Discord icon with increased size */}
+          <Link isExternal href={siteConfig.links.linkedin} title="Linkedin">
+            <LinkedInIcon className="text-default-500 w-6 h-6" /> {/* Linkedin icon with increased size */}
           </Link>
           <Link isExternal href={siteConfig.links.github} title="GitHub">
             <GithubIcon className="text-default-500 w-6 h-6" /> {/* GitHub icon with increased size */}
+          </Link>
+          <Link isExternal href={siteConfig.links.instagram} title="Instagram">
+            <InstagramIcon className="text-default-500 w-6 h-6" /> {/* GitHub icon with increased size */}
           </Link>
           <ThemeSwitch /> {/* Theme switch component */}
         </NavbarItem>
@@ -92,21 +97,24 @@ export const Navbar = () => {
 
       {/* NavbarContent for mobile view */}
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        <Link isExternal href={siteConfig.links.github}>
-          <GithubIcon className="text-default-500 w-6 h-6" /> {/* GitHub icon with increased size */}
+        <Link isExternal href={siteConfig.links.github} title="GitHub">
+          <GithubIcon className="text-default-500 w-6 h-6" />
+        </Link>
+        <Link isExternal href={siteConfig.links.instagram} title="Instagram">
+          <InstagramIcon className="text-default-500 w-6 h-6" />
         </Link>
         {/* Buy me a Coffee button for mobile view */}
         <Link
           isExternal
-          href="https://venmo.com/abaustinva" // Replace with your Venmo link
-          target="_blank" // Open in a new tab
-          rel="noopener noreferrer" // Security reasons
+          href="https://venmo.com/abaustinva"
+          target="_blank"
+          rel="noopener noreferrer"
           className="text-lg"
         >
           ☕
         </Link>
-        <ThemeSwitch /> {/* Theme switch component */}
-        <NavbarMenuToggle /> {/* Navbar menu toggle for mobile view */}
+        <ThemeSwitch />
+        <NavbarMenuToggle />
       </NavbarContent>
 {/* Navbar menu for mobile view */}
 <NavbarMenu>

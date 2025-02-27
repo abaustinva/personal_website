@@ -65,6 +65,54 @@ export const TwitterIcon: React.FC<IconSvgProps> = ({
   );
 };
 
+
+export const InstagramIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      height={size || height}
+      viewBox="0 0 26 23"
+      width={size || width}
+      {...props}
+    >
+      <path
+        d="M16.5 0h-9C3.4 0 0 3.4 0 7.5v9C0 20.6 3.4 24 7.5 24h9c4.1 0 7.5-3.4 7.5-7.5v-9C24 3.4 20.6 0 16.5 0zm5.25 16.5c0 2.9-2.35 5.25-5.25 5.25h-9c-2.9 0-5.25-2.35-5.25-5.25v-9C2.25 4.6 4.6 2.25 7.5 2.25h9c2.9 0 5.25 2.35 5.25 5.25v9z"
+        fill="currentColor"
+      />
+      <path
+        d="M12 6c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 9.75c-2.07 0-3.75-1.68-3.75-3.75 0-2.07 1.68-3.75 3.75-3.75 2.07 0 3.75 1.68 3.75 3.75 0 2.07-1.68 3.75-3.75 3.75z"
+        fill="currentColor"
+      />
+      <circle cx="18.5" cy="5.5" r="1.5" fill="currentColor" />
+    </svg>
+  );
+};
+
+export const LinkedInIcon: React.FC<IconSvgProps> = ({
+  size = 24,
+  width,
+  height,
+  ...props
+}) => {
+  return (
+    <svg
+      height={size || height}
+      viewBox="0 0 24 24"
+      width={size || width}
+      {...props}
+    >
+      <path
+        d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"
+        fill="currentColor"
+      />
+    </svg>
+  );
+};
+
 export const GithubIcon: React.FC<IconSvgProps> = ({
   size = 24,
   width,
