@@ -49,17 +49,17 @@ export default function IndexPage() {
           <span className={title()}>&nbsp;</span>
           
           <div className="flex items-center justify-center">
-            <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl inline-block`} 
+          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl inline-block pb-2`} 
+                style={{ marginBottom: '2rem' }}>
+            {text}
+          </span>
+          {showEmoji && (
+            <span className={`${title()} text-3xl md:text-4xl lg:text-7xl inline-block ml-2 pb-2`} 
                   style={{ marginBottom: '2rem' }}>
-              {text}
+              {emoji}
             </span>
-            {showEmoji && (
-              <span className={`${title()} text-3xl md:text-4xl lg:text-7xl inline-block ml-2`} 
-                    style={{ marginBottom: '2rem' }}>
-                {emoji}
-              </span>
-            )}
-          </div>
+          )}
+        </div>
           <br />
           
           <div className={`transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>

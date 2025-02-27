@@ -42,7 +42,10 @@ export const Navbar = ({ showContent = true }: NavbarProps) => {
       <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
         <NavbarBrand className="gap-3 max-w-fit">
           <NextLink className="flex justify-start items-center gap-6" href="/">
-            <p className="font-bold text-xl">austin</p>
+          <p className="font-bold text-xl">
+      <span className="hidden md:inline">austin abraham</span>
+      <span className="md:hidden">austin</span>
+    </p>
           </NextLink>
         </NavbarBrand>
         <div className="hidden md:flex gap-6 justify-start ml-2">
@@ -95,7 +98,9 @@ export const Navbar = ({ showContent = true }: NavbarProps) => {
       </NavbarContent>
 
       <NavbarContent className="sm:hidden basis-1 pl-4" justify="end">
-        
+      <Link isExternal href={siteConfig.links.linkedin} title="LinkedIn">
+            <LinkedInIcon className="text-default-500 w-6 h-6" />
+          </Link>
         <Link isExternal href={siteConfig.links.github} title="GitHub">
           <GithubIcon className="text-default-500 w-6 h-6" />
         </Link>
