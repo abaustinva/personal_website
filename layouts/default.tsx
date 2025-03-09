@@ -25,7 +25,7 @@ export default function DefaultLayout({
           href="https://www.youtube.com/watch?v=MjR4iDkz3ic&pp=ygUuZGVycmljayByb3NlIGhpZ2hsaWdodHMgdGhhdCB3aWxsIG1ha2UgeW91IGNyeQ%3D%3D"
           title="heroui.com homepage"
         >
-          <span className="text-default-600">Made with ❤️ by austin</span>
+          <span className="text-default-600">made with ❤️ by austin</span>
         </Link>
       </footer>
     </div>

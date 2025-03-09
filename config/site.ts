@@ -15,7 +15,7 @@ export const siteConfig = {
       rel: "noopener noreferrer"
     },
     {
-      label: "hot takes",
+      label: "quotes",
       href: "/hot_takes",
     },
     {
@@ -35,7 +35,7 @@ export const siteConfig = {
       rel: "noopener noreferrer"
     },
     {
-      label: "hot takes",
+      label: "quotes",
       href: "/hot_takes",
     },
     {
@@ -46,7 +46,7 @@ export const siteConfig = {
   links: {
     github: "https://github.com/abaustinva",
     discord: "https://discord.gg/9b6yyZKmH4",
-    instagram: "https://instagram.com/austin_abraham01",
-    linkedin: "https://linkedin.com/in/abaustinva"
+    instagram: "https://instagram.com/abaustinva",
+    linkedin: "https://linkedin.com/in/abaustinva",
   },
 };

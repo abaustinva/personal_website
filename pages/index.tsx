@@ -44,33 +44,33 @@ export default function IndexPage() {
 
   return (
     <DefaultLayout showContent={showContent}>
-      <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
+      <section className="flex flex-col items-center justify-center gap-4 py-4 sm:py-6">
         <div className="inline-block max-w-3xl text-center justify-center">
           <span className={title()}>&nbsp;</span>
           
           <div className="flex items-center justify-center">
-          <span className={`${title({ color: "violet" })} text-3xl md:text-4xl lg:text-7xl inline-block pb-2`} 
-                style={{ marginBottom: '2rem' }}>
+          <span className={`${title({ color: "violet" })} text-3xl sm:text-4xl sm:text-7xl inline-block pb-2`} 
+                style={{ marginBottom: '' }}>
             {text}
           </span>
           {showEmoji && (
-            <span className={`${title()} text-3xl md:text-4xl lg:text-7xl inline-block ml-2 pb-2`} 
-                  style={{ marginBottom: '2rem' }}>
+            <span className={`${title()} text-3xl md:text-4xl sm:text-7xl inline-block ml-2 pb-2`} 
+                  style={{ marginBottom: '' }}>
               {emoji}
             </span>
           )}
         </div>
-          <br />
+        
           
           <div className={`transition-opacity duration-1000 ease-in-out ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-            <span className={`${title()} text-3xl md:text-4xl lg:text-7xl`}>
-              my name is Austin, and i'm a incoming cloud engineer @AWS.
+            <span className={`${title()} text-3xl sm:text-4xl sm:text-7xl`}>
+              my name is Austin, and i'm an incoming cloud engineer @ aws.
             </span>
-            <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
-              I'm currently a senior Computer Science major @Texas A&M University!
+            <div className={`${subtitle({ class: "mt-3" })} text-base md:text-md md:text-3xl`}>
+              I'm currently a senior Computer Science major @ Texas A&M University!
             </div>
-            <div className={`${subtitle({ class: "mt-4" })} text-base md:text-lg lg:text-3xl`}>
-              I love playing basketball, watching the show Friends, and setting up hackathons!
+            <div className={`${subtitle({ class: "mt-3" })} text-base md:text-md md:text-3xl`}>
+              I love playing basketball, watching sitcoms, and setting up hackathons!
             </div>
           </div>
         </div>
@@ -80,9 +80,9 @@ export default function IndexPage() {
             isExternal
             className={buttonStyles({
               color: "secondary",
-              radius: "lg",
+              radius: "md",
               variant: "shadow",
-              size: "lg",
+              size: "md",
             })}
             href={'/about'}
           >
@@ -92,8 +92,8 @@ export default function IndexPage() {
             isExternal
             className={buttonStyles({ 
               variant: "shadow", 
-              radius: "lg", 
-              size: "lg" 
+              radius: "md", 
+              size: "md" 
             })}
             href="https://linkedin.com/in/abaustinva"
           >
