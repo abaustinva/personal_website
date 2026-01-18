@@ -12,7 +12,7 @@ export const siteConfig = {
       label: "resume",
       href: "/resume.pdf",
       target: "_blank",
-      rel: "noopener noreferrer"
+      rel: "noopener noreferrer",
     },
     {
       label: "quotes",
@@ -32,7 +32,7 @@ export const siteConfig = {
       label: "resume",
       href: "/resume.pdf",
       target: "_blank",
-      rel: "noopener noreferrer"
+      rel: "noopener noreferrer",
     },
     {
       label: "quotes",
